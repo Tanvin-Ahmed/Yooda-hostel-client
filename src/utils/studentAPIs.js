@@ -23,6 +23,21 @@ export const addStudent = (info, setLoading, setStatus) => {
 		});
 };
 
+export const findOneStudent = (roll, setLoading, setStatus, setData) => {
+	setLoading(true);
+	setStatus({ message: "", error: false });
+	axios
+		.get(`${url}/find-one/${roll}`)
+		.then(({ data }) => {
+			setLoading(false);
+			setData(data);
+		})
+		.catch(error => {
+			setLoading(false);
+			setStatus({ message: error.response.data.message, error: true });
+		});
+};
+
 export const getStudents = (page, setLoading, setStatus, setData) => {
 	setStatus({
 		message: "",
@@ -65,7 +80,13 @@ export const updateStudentStatus = (info, setLoading, setStatus, setData) => {
 		});
 };
 
-export const updateStudentInfo = (info, setLoading, setStatus, navigate) => {
+export const updateStudentInfo = (
+	info,
+	setLoading,
+	setStatus,
+	navigate,
+	setSelectedStudent
+) => {
 	setStatus({
 		message: "",
 		error: false,
@@ -75,6 +96,7 @@ export const updateStudentInfo = (info, setLoading, setStatus, navigate) => {
 		.put(`${url}/update`, info)
 		.then(() => {
 			setLoading(false);
+			setSelectedStudent({});
 			navigate("/admin");
 		})
 		.catch(error => {

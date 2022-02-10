@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { addFood, updateFood } from "../../utils/foodAPIs";
 import SpinnerAndMessage from "../shared/spinnerAndMessage/SpinnerAndMessage";
 
-const AddFood = ({ selectedFoodItem }) => {
+const AddFood = ({ selectedFoodItem, setSelectedFoodItem }) => {
 	const navigate = useNavigate();
 	const [name, setName] = useState(selectedFoodItem?.name || "");
 	const [price, setPrice] = useState(selectedFoodItem?.price || "");
@@ -24,7 +24,13 @@ const AddFood = ({ selectedFoodItem }) => {
 		};
 		if (selectedFoodItem?._id) {
 			foodData._id = selectedFoodItem?._id;
-			updateFood(foodData, setLoading, setStatus, navigate);
+			updateFood(
+				foodData,
+				setLoading,
+				setStatus,
+				navigate,
+				setSelectedFoodItem
+			);
 		} else {
 			addFood(foodData, setLoading, setStatus);
 		}

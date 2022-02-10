@@ -69,7 +69,7 @@ const UpdateStudentStatus = ({
 			<Navigation />
 			<section className="studentList">
 				<div className="container">
-					<h1>DASHBOARD</h1>
+					<h1>MANAGE STUDENT STATUS</h1>
 					<Button onClick={bulkActionToUpdate}>Update</Button>
 					<br />
 					{updateLoading ? (
@@ -87,6 +87,7 @@ const UpdateStudentStatus = ({
 								<th>Class</th>
 								<th>Hall</th>
 								<th>Status</th>
+								<th>Manage</th>
 							</tr>
 						</thead>
 						<tbody>

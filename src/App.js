@@ -9,6 +9,7 @@ import Dashboard from "./components/dahsboard/Dashboard";
 import AddFood from "./components/addFood/AddFood";
 import { useState } from "react";
 import ManageFoodList from "./components/manageFoodList/ManageFoodList";
+import FoodDistribution from "./components/foodDistribution/FoodDistribution";
 
 function App() {
 	const [selectedStudent, setSelectedStudent] = useState({});
@@ -44,10 +45,21 @@ function App() {
 						}
 					/>
 					<Route
+						path="/food-distribution"
+						element={
+							<PrivateRoute>
+								<FoodDistribution />
+							</PrivateRoute>
+						}
+					/>
+					<Route
 						path="/add_student"
 						element={
 							<PrivateRoute>
-								<AddStudent selectedStudent={selectedStudent} />
+								<AddStudent
+									selectedStudent={selectedStudent}
+									setSelectedStudent={setSelectedStudent}
+								/>
 							</PrivateRoute>
 						}
 					/>
@@ -55,7 +67,10 @@ function App() {
 						path="/add_food"
 						element={
 							<PrivateRoute>
-								<AddFood selectedFoodItem={selectedFoodItem} />
+								<AddFood
+									selectedFoodItem={selectedFoodItem}
+									setSelectedFoodItem={setSelectedFoodItem}
+								/>
 							</PrivateRoute>
 						}
 					/>

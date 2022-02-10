@@ -41,7 +41,31 @@ export const getFoods = (page, setLoading, setStatus, setData) => {
 		});
 };
 
-export const updateFood = (info, setLoading, setStatus, navigate) => {
+export const getAllFood = (setLoading, setStatus, setData) => {
+	setStatus({
+		message: "",
+		error: false,
+	});
+	setLoading(true);
+	axios
+		.get(`${url}/get-all`)
+		.then(({ data }) => {
+			setData(data);
+			setLoading(false);
+		})
+		.catch(error => {
+			setLoading(false);
+			setStatus({ message: error.response.data.message, error: true });
+		});
+};
+
+export const updateFood = (
+	info,
+	setLoading,
+	setStatus,
+	navigate,
+	setSelectedFoodItem
+) => {
 	setStatus({
 		message: "",
 		error: false,
@@ -52,6 +76,7 @@ export const updateFood = (info, setLoading, setStatus, navigate) => {
 		.then(() => {
 			setLoading(false);
 			navigate("/manage-food-list");
+			setSelectedFoodItem({});
 		})
 		.catch(error => {
 			setLoading(false);

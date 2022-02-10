@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { addStudent, updateStudentInfo } from "../../utils/studentAPIs";
 import Navigation from "../shared/navigation/Navigation";
 import "./AddStudent.scss";
-import CircularProgress from "@mui/material/CircularProgress";
 import { useNavigate } from "react-router-dom";
 import SpinnerAndMessage from "../shared/spinnerAndMessage/SpinnerAndMessage";
 
-const AddStudent = ({ selectedStudent }) => {
+const AddStudent = ({ selectedStudent, setSelectedStudent }) => {
 	const navigate = useNavigate();
 	const [fullName, setFullName] = useState(selectedStudent?.fullName || "");
 	const [age, setAge] = useState(selectedStudent?.age || "");
@@ -35,7 +34,13 @@ const AddStudent = ({ selectedStudent }) => {
 		};
 		if (selectedStudent?._id) {
 			studentInfo._id = selectedStudent?._id;
-			updateStudentInfo(studentInfo, setLoading, setQueryStatus, navigate);
+			updateStudentInfo(
+				studentInfo,
+				setLoading,
+				setQueryStatus,
+				navigate,
+				setSelectedStudent
+			);
 		} else {
 			addStudent(studentInfo, setLoading, setQueryStatus);
 		}

@@ -34,7 +34,9 @@ const Navigation = () => {
 							<Button onClick={() => navigate("/update-students-status")}>
 								Manage student status
 							</Button>
-							<Button>Manage meal status</Button>
+							<Button onClick={() => navigate("/food-distribution")}>
+								Food Distribution
+							</Button>
 							<Button onClick={() => navigate("/manage-food-list")}>
 								Manage Food item
 							</Button>
