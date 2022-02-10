@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 const Login = () => {
 	let navigate = useNavigate();
 	let location = useLocation();
+	console.log(location);
 	let { from } = location.state || { from: { pathname: "/" } };
 	const [email, setEmail] = useState("");
 	const handleSubmit = e => {
