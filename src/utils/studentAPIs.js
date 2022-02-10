@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:5000/student";
+const url = "https://yooda-hostel-meal-managment.herokuapp.com/student";
 
 export const addStudent = (info, setLoading, setStatus) => {
 	setStatus({

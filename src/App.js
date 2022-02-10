@@ -10,6 +10,7 @@ import AddFood from "./components/addFood/AddFood";
 import { useState } from "react";
 import ManageFoodList from "./components/manageFoodList/ManageFoodList";
 import FoodDistribution from "./components/foodDistribution/FoodDistribution";
+import NoMatch from "./components/noMatch/NoMatch";
 
 function App() {
 	const [selectedStudent, setSelectedStudent] = useState({});
@@ -74,6 +75,7 @@ function App() {
 							</PrivateRoute>
 						}
 					/>
+					<Route path="*" element={<NoMatch />} />
 				</Routes>
 			</Router>
 		</div>

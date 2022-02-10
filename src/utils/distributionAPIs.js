@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:5000/distribution";
+const url = "https://yooda-hostel-meal-managment.herokuapp.com/distribution";
 
 export const addDistribution = (info, setLoading, setStatus) => {
 	setStatus({ message: "", error: false });

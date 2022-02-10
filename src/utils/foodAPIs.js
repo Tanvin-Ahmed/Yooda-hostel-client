@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:5000/food";
+const url = "https://yooda-hostel-meal-managment.herokuapp.com/food";
 
 export const addFood = (info, setLoading, setStatus) => {
 	setStatus({
