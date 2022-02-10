@@ -1,0 +1,33 @@
+.manageFoodList {
+	.container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+
+		h1 {
+			text-align: center;
+		}
+
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			tr:nth-child(even) {
+				background-color: #e6e6e6;
+			}
+			td,
+			th {
+				border: 1px solid #dddddd;
+				text-align: center;
+				padding: 8px;
+			}
+		}
+	}
+	.warning {
+		color: rgb(255, 0, 43);
+		font-weight: bold;
+	}
+	.loadingMessage {
+		text-align: center;
+	}
+}
